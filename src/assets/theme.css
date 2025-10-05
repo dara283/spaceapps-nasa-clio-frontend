@@ -1,0 +1,247 @@
+:root{
+  /* Brand colors (Space Apps) */
+  --blue-yonder:#2E96F5;
+  --neon-blue:#0960E1;
+  --electric-blue:#0042A6;
+  --deep-blue:#07173F;
+  --rocket-red:#E43700;
+  --martian-red:#8E1100;
+  --neon-yellow:#EAFE07;
+  --white:#ffffff;
+
+  --text:#eaf2ff;
+  --muted:#AFC3DA;
+  --panel:#0b1526;
+  --panel-border:#1b2a44;
+  --radius:12px;
+
+  --font-heading:'Fira Sans','Overpass',system-ui,sans-serif;  /* headings */
+  --font-body:'Overpass',system-ui,sans-serif;                  /* body */
+}
+
+/* base */
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{margin:0;background:#050c16;color:var(--text);font-family:var(--font-body)}
+
+/* typography */
+h1,h2,h3,h4{font-family:var(--font-heading);letter-spacing:.2px}
+h1{font-weight:900} h2,h3{font-weight:800}
+
+/* nav stays transparent/glassy from before */
+.topbar{
+  height:64px; display:flex; align-items:center;
+  padding:0 18px; position:sticky; top:0; z-index:10;
+  background:transparent;                 /* fully transparent */
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav{ display:flex; gap:12px; margin-left:auto; } /* right align */
+.nav-link{ color:#eaf2ff; opacity:.9; padding:8px 12px; border-radius:10px; text-decoration:none }
+.nav-link:hover{ background:rgba(255,255,255,.06) }
+.nav-link.router-link-active{ background:rgba(255,255,255,.08); opacity:1 }
+.btn{ border:0; border-radius:12px; padding:10px 18px; font-weight:700; cursor:pointer }
+.btn-primary{ background:linear-gradient(135deg,var(--neon-blue),var(--electric-blue)); color:#fff }
+.btn-primary:hover{ filter:brightness(1.08); transform:translateY(-1px) }
+
+
+/* Blue brand button (use this for Sign Up / submit buttons) */
+.btn{ border:0; border-radius:12px; padding:10px 18px; font-weight:700; cursor:pointer }
+.btn-primary{ background:linear-gradient(135deg,var(--neon-blue),var(--electric-blue)); color:#fff }
+.btn-primary:hover{ filter:brightness(1.08); transform:translateY(-1px) }
+
+
+/* glass nav */
+.topbar{
+  height:64px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 18px; position:sticky; top:0; z-index:10;
+  background:transparent;
+  backdrop-filter: blur(8px); border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav{display:flex;gap:12px}
+.nav-link{color:#eaf2ff;opacity:.9;padding:8px 12px;border-radius:10px;text-decoration:none}
+.nav-link.router-link-active{background:rgba(255,255,255,.06);opacity:1}
+
+/* cards/inputs/buttons shared */
+.card{background:var(--panel);border:1px solid var(--panel-border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.input,select{border:1.5px solid #20314d;background:#0b1526;color:#eaf2ff;border-radius:10px;padding:10px 12px;width:100%}
+label{font-weight:600;color:#cad8ee}
+.btn{border:0;border-radius:var(--radius);padding:10px 18px;font-weight:700;cursor:pointer}
+.btn-primary{background:linear-gradient(135deg,var(--neon-blue),var(--electric-blue));color:#fff}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-cta{background:var(--neon-yellow);color:var(--deep-blue)}
+
+
+/* Only change .btn-primary (blue → NASA red). White buttons stay untouched */
+:root{
+  --nasa-red: #fc3d21;
+  --nasa-red-900: #d8351d;
+}
+
+.btn-primary{
+  background: var(--nasa-red) !important;
+  color: #fff !important;
+  border: 0;
+  box-shadow: none;
+}
+.btn-primary:hover{
+  background: var(--nasa-red-900) !important;
+  filter: none;                 /* disable prior brightness filter */
+  transform: translateY(-1px);  /* keep your subtle lift */
+}
+.btn-primary:active{
+  transform: translateY(0);     /* nice click feel */
+}
+
+/* === Button shape: square corners for all .btn === */
+.btn{
+  border: 1px solid transparent;
+  border-radius: 3px !important;   /* square-ish corners override */
+  padding: 10px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-body);
+  background: transparent;          /* variants set their bg */
+  color: var(--text);
+}
+
+/* Primary (keep NASA red) */
+:root{
+  --nasa-red: #fc3d21;
+  --nasa-red-900: #d8351d;
+}
+.btn-primary{
+  background: var(--nasa-red) !important;
+  color: #fff !important;
+  border-color: transparent;
+  box-shadow: none;
+  transition: background .15s ease, transform .05s ease;
+}
+.btn-primary:hover{ background: var(--nasa-red-900) !important; transform: translateY(-1px); }
+.btn-primary:active{ transform: translateY(0); }
+
+/* NEW: White button (for Sign Up) */
+.btn-white{
+  background: #fff !important;
+  color: #111 !important;
+  border-color: #e5e7eb !important;         /* subtle border */
+  box-shadow: none !important;
+}
+.btn-white:hover{ background: #f2f2f2 !important; border-color: #d1d5db !important; }
+.btn-white:active{ background: #eaeaea !important; }
+
+/* If your Sign Up lives inside the nav and has .nav-link too,
+   force square corners on that combo */
+.nav-link.btn,
+.nav-link.btn-white,
+.nav-link.btn-primary{
+  border-radius: 3px !important;
+}
+
+/* ===== Specific button palette by section ===== */
+:root{
+  --nasa-red: #fc3d21;     /* NASA red */
+  --nasa-red-900: #d8351d; /* hover/active */
+}
+
+/* 1) LOCATION SELECTION METHOD (the 3 tabs) → RED */
+.location-method .method-tab{
+  background: var(--nasa-red) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 3px; /* square-ish */
+  box-shadow: none !important;
+}
+.location-method .method-tab:hover{
+  background: var(--nasa-red-900) !important;
+}
+.location-method .method-tab.active{
+  /* subtle focus ring when active */
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.16) !important;
+}
+
+/* 2) SUBMIT: "Generate NASA Weather Analysis" → RED */
+.check-btn{
+  background: var(--nasa-red) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 3px !important; /* square */
+  box-shadow: none !important;
+  transition: background .15s ease, transform .05s ease;
+}
+.check-btn:hover{ background: var(--nasa-red-900) !important; transform: translateY(-1px); }
+.check-btn:active{ transform: translateY(0); }
+
+/* 3) NASA Earth Observation Variables (tiles) → WHITE look */
+.variables-grid .variable-card{
+  background: #fff !important;
+  color: #0b1526 !important;
+  border: 1.5px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+.variables-grid .variable-card:hover{
+  border-color: #d1d5db !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.10);
+}
+/* selected state gets a subtle red ring, stays white */
+.variables-grid .variable-card.selected{
+  border-color: var(--nasa-red) !important;
+  box-shadow: 0 0 0 3px rgba(252,61,33,.18) !important;
+  color: #111 !important;
+  background: #fff !important;
+}
+
+/* 4) "VIEW SAVED" + buttons under Download → WHITE */
+.btn-view-saved,
+.download-btn{
+  background: #fff !important;
+  color: #111 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 3px !important;   /* square to match */
+  box-shadow: none !important;
+}
+.btn-view-saved:hover,
+.download-btn:hover{
+  background: #f2f2f2 !important;
+  border-color: #d1d5db !important;
+}
+
+/* base structure for all navbars */
+.topbar{
+  height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 18px; position:sticky; top:0; z-index:10;
+}
+
+/* HOME ONLY (transparent) */
+.topbar--transparent{
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 0;
+}
+
+/* OTHER PAGES (glass) */
+.topbar--glass{
+  background: linear-gradient(180deg, rgba(7,23,63,.35), rgba(7,23,63,.08));
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.glow-word{
+  color:#9ffe07;                 /* neon yellow brand accent */
+  text-shadow:
+    0 0 12px rgba(234,254,7,.35),
+    0 0 28px rgba(46,150,245,.30);   /* subtle blue halo */
+  font-weight: 900;
+}
+
+
+.btn-lg{
+  padding: 10px 28px;
+  font-size: 1.3rem;
+  line-height: 1.1;
+  letter-spacing: .2px;
+}
+@media (min-width: 1024px){
+  .btn-lg{ padding: 10px 28px; font-size: 1.3rem; }
+}
