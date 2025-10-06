@@ -17,6 +17,7 @@
 
   --font-heading:'Fira Sans','Overpass',system-ui,sans-serif;  /* headings */
   --font-body:'Overpass',system-ui,sans-serif;                  /* body */
+  --font-brand: 'Nunito', system-ui, sans-serif;
 }
 
 /* base */
@@ -61,6 +62,13 @@ h1{font-weight:900} h2,h3{font-weight:800}
 .nav-link{color:#eaf2ff;opacity:.9;padding:8px 12px;border-radius:10px;text-decoration:none}
 .nav-link.router-link-active{background:rgba(255,255,255,.06);opacity:1}
 
+/* Make only Login and Sign Up bold in the navbar */
+.topbar .nav a[href="/login"],
+.topbar .nav a[href="/signup"] {
+  font-weight: 1000;            /* or 700 if you prefer */
+  letter-spacing: .2px;
+}
+
 /* cards/inputs/buttons shared */
 .card{background:var(--panel);border:1px solid var(--panel-border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
 .input,select{border:1.5px solid #20314d;background:#0b1526;color:#eaf2ff;border-radius:10px;padding:10px 12px;width:100%}
@@ -95,7 +103,7 @@ label{font-weight:600;color:#cad8ee}
 /* === Button shape: square corners for all .btn === */
 .btn{
   border: 1px solid transparent;
-  border-radius: 3px !important;   /* square-ish corners override */
+  border-radius: 15px !important;   /* square-ish corners override */
   padding: 10px 18px;
   font-weight: 700;
   cursor: pointer;
@@ -121,20 +129,21 @@ label{font-weight:600;color:#cad8ee}
 
 /* NEW: White button (for Sign Up) */
 .btn-white{
-  background: #fff !important;
-  color: #111 !important;
+  background: transparent!important;
+  color: #fff !important;
   border-color: #e5e7eb !important;         /* subtle border */
   box-shadow: none !important;
+  border-width: 1.5px;
 }
-.btn-white:hover{ background: #f2f2f2 !important; border-color: #d1d5db !important; }
-.btn-white:active{ background: #eaeaea !important; }
+.btn-white:hover{ background: #f2f2f2 !important; color: black !important; border-color: #d1d5db !important;  }
+.btn-white:active{ background: #eaeaea !important;}
 
 /* If your Sign Up lives inside the nav and has .nav-link too,
    force square corners on that combo */
 .nav-link.btn,
 .nav-link.btn-white,
 .nav-link.btn-primary{
-  border-radius: 3px !important;
+  border-radius: 15px !important;
 }
 
 /* ===== Specific button palette by section ===== */

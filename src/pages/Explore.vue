@@ -159,9 +159,6 @@ const variableList = [
   { key:'wind',          name:'Wind Speed',    desc:'Surface winds, gusts' },
   { key:'humidity',      name:'Humidity',      desc:'Relative humidity, dewpoint' },
   { key:'cloud',         name:'Cloud Cover',   desc:'Cloud fraction, types' },
-  { key:'dust',          name:'Dust/Aerosols', desc:'Air quality, visibility' },
-  { key:'snow',          name:'Snow',          desc:'Snow depth, coverage' },
-  { key:'solar',         name:'Solar Radiation', desc:'UV index, solar irradiance' },
 ]
 
 function defaultThresholds(k){

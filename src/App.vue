@@ -19,9 +19,9 @@ function onLogout() {
     >
       <!-- Brand (left) -->
       <RouterLink to="/" class="brand">
-        <!-- Put your SVG/PNG at public/nasa-logo.svg or src/assets/nasa-logo.svg -->
+
         <img src="/nasa-logo.svg" alt="NASA" class="brand-logo" />
-        <span class="brand-text">CLIO</span>
+        <span class="brand-text">CLIO CLIMATE</span>
       </RouterLink>
 
       <!-- Links (right) -->
@@ -36,7 +36,6 @@ function onLogout() {
         <!-- If logged out -->
         <template v-else>
           <template v-if="$route.name === 'home'">
-            <RouterLink to="/explore" class="nav-link">Explore</RouterLink>
             <RouterLink to="/login" class="nav-link">Login</RouterLink>
             <RouterLink to="/signup" class="nav-link btn btn-white" style="padding:8px 14px">Sign Up</RouterLink>
           </template>
@@ -64,6 +63,7 @@ function onLogout() {
 </template>
 
 <style scoped>
+
 /* Keep this minimal so it plays nicely with your theme.css */
 .topbar{
   position: sticky;
@@ -95,14 +95,19 @@ function onLogout() {
   margin-right: auto; /* push links to the right */
 }
 .brand-logo{
-  height: 28px;
+  height: 42px;
   width: auto;
   display: block;
   opacity: .95;
 }
 .brand-text{
-  font-weight: 800;
-  letter-spacing: .3px;
+font-family: var(--font-brand);
+  font-weight: 900;              /* heavy look */
+  letter-spacing: 2px;
+  font-size: 18px;               /* adjust as you like */
+  line-height: 1;
+  color: #fff;
+  text-transform: uppercase; 
 }
 
 /* Right-aligned nav (your theme.css already styles .nav-link & .btn-white) */
