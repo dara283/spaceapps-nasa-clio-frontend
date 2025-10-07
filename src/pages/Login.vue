@@ -36,7 +36,7 @@ async function onSubmit(e) {
       <input class="input" type="password" v-model="password" required />
 
       <div style="margin-top:16px">
-        <button type="submit" class="btn btn-white" style="width:100%">Login</button>
+        <button type="submit" class="btn btn-white" style="width:100%">Log in</button>
       </div>
 
       <div style="margin-top:10px;text-align:center;color:var(--muted)">

@@ -27,7 +27,6 @@ function onLogout() {
       <nav class="nav">
         <!-- If logged in -->
         <template v-if="isAuthed">
-          <RouterLink to="/explore" class="nav-link">Explore</RouterLink>
           <RouterLink to="/dashboard" class="nav-link">Dashboard</RouterLink>
           <button class="nav-link btn btn-white" @click="onLogout">Logout</button>
         </template>
@@ -56,7 +55,6 @@ function onLogout() {
 
           <!-- DASHBOARD (logged out): unchanged per your setup -->
           <template v-else-if="$route.name === 'dashboard'">
-            <RouterLink to="/explore" class="nav-link">Explore</RouterLink>
           </template>
 
           <!-- Fallback: Explore + Login + (Search icon) + Sign Up -->

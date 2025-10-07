@@ -64,7 +64,9 @@ h1{font-weight:900} h2,h3{font-weight:800}
 
 /* Make only Login and Sign Up bold in the navbar */
 .topbar .nav a[href="/login"],
-.topbar .nav a[href="/signup"] {
+.topbar .nav a[href="/signup"],
+.topbar .nav a[href="/dashboard"],
+.topbar .nav a[href="/logout"]{
   font-weight: 1000;            /* or 700 if you prefer */
   letter-spacing: .2px;
 }
@@ -273,4 +275,150 @@ label + textarea{
 }
 @media (min-width: 1024px){
   .btn-lg{ padding: 10px 28px; font-size: 1.3rem; }
+}
+
+/* ================================
+   RESPONSIVE UI ADD-ONS (drop-in)
+   ================================ */
+
+/* ---- Fluid scales & breakpoints ---- */
+:root{
+  /* Breakpoints */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+
+  /* Fluid typography + radii */
+  --fz-xs: clamp(12px, 1.2vw, 13px);
+  --fz-sm: clamp(13px, 1.4vw, 14px);
+  --fz-md: clamp(14px, 1.6vw, 16px);
+  --fz-lg: clamp(18px, 3vw, 22px);
+  --fz-xl: clamp(22px, 4vw, 30px);
+  --radius-fluid: clamp(12px, 2vw, 24px);
+}
+
+/* Apply fluid sizes to headings (keeps your fonts & weights) */
+h1{ font-size: var(--fz-xl); line-height: 1.15; }
+h2{ font-size: var(--fz-lg); line-height: 1.2; }
+h3{ font-size: var(--fz-md); line-height: 1.25; }
+
+/* Body base tweaks */
+body{ font-size: var(--fz-md); }
+
+/* ---- Container helper (use on page wrappers) ---- */
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(12px, 3vw, 24px);
+}
+
+/* ---- Forms: better label spacing + inputs fill small screens ---- */
+label{
+  display: block;              /* keeps label on its own line */
+  margin: 0 0 6px;             /* space between label and input */
+}
+.input, select{
+  width: 100%;
+  min-height: 42px;
+}
+
+/* Stack form controls nicely on narrow screens */
+@media (max-width: 680px){
+  .input-row, .row, .grid-row{
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
+/* ---- Buttons: make padding & radius fluid ---- */
+.btn{
+  border-radius: clamp(18px, 3vw, 32px) !important;
+  padding: clamp(8px, 1.8vw, 12px) clamp(14px, 3vw, 20px);
+  font-size: var(--fz-md);
+}
+
+/* A larger CTA helper if you want it */
+.btn-lg{
+  padding: clamp(10px, 2.2vw, 14px) clamp(18px, 4vw, 28px);
+  font-size: clamp(16px, 2.5vw, 20px);
+}
+
+/* ---- Cards: radius & padding adapt smoothly ---- */
+.card{
+  border-radius: var(--radius-fluid);
+  padding: clamp(14px, 2vw, 24px);
+}
+
+/* ---- Grids that gracefully wrap ---- */
+.grid-auto{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: clamp(8px, 2vw, 14px);
+}
+.grid-auto-tight{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: clamp(6px, 2vw, 12px);
+}
+
+/* Use this to stack horizontal layouts on phones */
+.stack-sm{
+  display: flex;
+  gap: 12px;
+}
+@media (max-width: 640px){
+  .stack-sm{ flex-direction: column; }
+}
+
+/* ---- Navbar: wrap nicely, scale brand & links ---- */
+.topbar{
+  flex-wrap: wrap;              /* allows wrapping on tiny screens */
+  padding-inline: clamp(10px, 2.5vw, 18px);
+}
+.brand{
+  gap: clamp(6px, 2vw, 10px);
+}
+.brand-logo{
+  height: clamp(30px, 5vw, 42px);
+}
+.brand-text{
+  font-size: clamp(14px, 3.2vw, 18px);
+  letter-spacing: clamp(1px, .4vw, 2px);
+}
+
+/* Nav links get tighter on small screens */
+.nav{
+  gap: clamp(8px, 2.2vw, 12px);
+}
+.nav .nav-link{
+  padding: clamp(6px, 1.6vw, 8px) clamp(8px, 2.2vw, 12px);
+  border-radius: clamp(16px, 4vw, 32px);
+}
+
+/* Optionally hide long brand text on very tiny screens */
+@media (max-width: 380px){
+  .brand-text{ display: none; }
+}
+
+/* ---- Leaflet map: responsive height ---- */
+.map-responsive{
+  height: clamp(220px, 42vh, 420px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+/* ---- “Variable tiles” grid can be a bit denser on phones ---- */
+.variables-grid{ /* apply this class to the container if you like */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
+  gap: clamp(8px, 2vw, 12px);
+}
+
+/* ---- Tables/scroll containers: avoid overflow on phones ---- */
+.scroll-x{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
