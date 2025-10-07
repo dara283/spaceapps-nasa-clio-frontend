@@ -37,16 +37,16 @@ h1{font-weight:900} h2,h3{font-weight:800}
   border-bottom:1px solid rgba(255,255,255,.06);
 }
 .nav{ display:flex; gap:12px; margin-left:auto; } /* right align */
-.nav-link{ color:#eaf2ff; opacity:.9; padding:8px 12px; border-radius:10px; text-decoration:none }
+.nav-link{ color:#eaf2ff; opacity:.9; padding:8px 12px; border-radius:32px; text-decoration:none }
 .nav-link:hover{ background:rgba(255,255,255,.06) }
 .nav-link.router-link-active{ background:rgba(255,255,255,.08); opacity:1 }
-.btn{ border:0; border-radius:12px; padding:10px 18px; font-weight:700; cursor:pointer }
+.btn{ border:0; border-radius:18px; padding:10px 18px; font-weight:700; cursor:pointer }
 .btn-primary{ background:linear-gradient(135deg,var(--neon-blue),var(--electric-blue)); color:#fff }
 .btn-primary:hover{ filter:brightness(1.08); transform:translateY(-1px) }
 
 
 /* Blue brand button (use this for Sign Up / submit buttons) */
-.btn{ border:0; border-radius:12px; padding:10px 18px; font-weight:700; cursor:pointer }
+.btn{ border:0; border-radius:32px; padding:10px 18px; font-weight:700; cursor:pointer }
 .btn-primary{ background:linear-gradient(135deg,var(--neon-blue),var(--electric-blue)); color:#fff }
 .btn-primary:hover{ filter:brightness(1.08); transform:translateY(-1px) }
 
@@ -59,7 +59,7 @@ h1{font-weight:900} h2,h3{font-weight:800}
   backdrop-filter: blur(8px); border-bottom:1px solid rgba(255,255,255,.06);
 }
 .nav{display:flex;gap:12px}
-.nav-link{color:#eaf2ff;opacity:.9;padding:8px 12px;border-radius:10px;text-decoration:none}
+.nav-link{color:#eaf2ff;opacity:.9;padding:8px 12px;border-radius:32px;text-decoration:none}
 .nav-link.router-link-active{background:rgba(255,255,255,.06);opacity:1}
 
 /* Make only Login and Sign Up bold in the navbar */
@@ -70,9 +70,29 @@ h1{font-weight:900} h2,h3{font-weight:800}
 }
 
 /* cards/inputs/buttons shared */
-.card{background:var(--panel);border:1px solid var(--panel-border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-.input,select{border:1.5px solid #20314d;background:#0b1526;color:#eaf2ff;border-radius:10px;padding:10px 12px;width:100%}
-label{font-weight:600;color:#cad8ee}
+.card{background:var(--panel);border:1px solid var(--panel-border);border-radius:32px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.input,select{border:1.5px solid #20314d;background:#0b1526;color:#eaf2ff;border-radius:28px;padding:10px 12px;width:100%}
+label{
+  font-weight:600;
+  color:#cad8ee;
+  display:block;        /* puts input on next line */
+  margin:0 0 4px;       /* space between label and input */
+}
+/* When an input/select follows a label */
+label + .input,
+label + input,
+label + select,
+label + textarea{
+  display:block;        /* keep it on its own line */
+}
+
+/* Threshold cards where the input is INSIDE the label */
+.threshold-inputs label{
+  display:flex;
+  flex-direction:column;
+  gap:4px;              /* space between label text and its inner input */
+}
+
 .btn{border:0;border-radius:var(--radius);padding:10px 18px;font-weight:700;cursor:pointer}
 .btn-primary{background:linear-gradient(135deg,var(--neon-blue),var(--electric-blue));color:#fff}
 .btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
@@ -103,7 +123,7 @@ label{font-weight:600;color:#cad8ee}
 /* === Button shape: square corners for all .btn === */
 .btn{
   border: 1px solid transparent;
-  border-radius: 15px !important;   /* square-ish corners override */
+  border-radius: 32px !important;   /* square-ish corners override */
   padding: 10px 18px;
   font-weight: 700;
   cursor: pointer;
@@ -129,8 +149,8 @@ label{font-weight:600;color:#cad8ee}
 
 /* NEW: White button (for Sign Up) */
 .btn-white{
-  background: transparent!important;
-  color: #fff !important;
+  background: white!important;
+  color: black !important;
   border-color: #e5e7eb !important;         /* subtle border */
   box-shadow: none !important;
   border-width: 1.5px;
@@ -143,7 +163,7 @@ label{font-weight:600;color:#cad8ee}
 .nav-link.btn,
 .nav-link.btn-white,
 .nav-link.btn-primary{
-  border-radius: 15px !important;
+  border-radius: 32px !important;
 }
 
 /* ===== Specific button palette by section ===== */
