@@ -375,7 +375,7 @@ label{
 /* ---- Navbar: wrap nicely, scale brand & links ---- */
 .topbar{
   flex-wrap: wrap;              /* allows wrapping on tiny screens */
-  padding-inline: clamp(10px, 2.5vw, 18px);
+  padding-inline: clamp(16px, 2.5vw, 18px);
 }
 .brand{
   gap: clamp(6px, 2vw, 10px);
@@ -384,7 +384,7 @@ label{
   height: clamp(30px, 5vw, 42px);
 }
 .brand-text{
-  font-size: clamp(14px, 3.2vw, 18px);
+  font-size: clamp(6px, 3.2vw, 14px);
   letter-spacing: clamp(1px, .4vw, 2px);
 }
 
@@ -393,7 +393,7 @@ label{
   gap: clamp(8px, 2.2vw, 12px);
 }
 .nav .nav-link{
-  padding: clamp(6px, 1.6vw, 8px) clamp(8px, 2.2vw, 12px);
+  padding: clamp(4px, 1.6vw, 6px) clamp(6px, 2.2vw, 10px);
   border-radius: clamp(16px, 4vw, 32px);
 }
 
@@ -421,4 +421,14 @@ label{
 .scroll-x{
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+/* optional: compact icon button */
+.nav .icon-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  padding: 0;
+  border-radius: 18px;
 }
